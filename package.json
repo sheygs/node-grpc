@@ -1,0 +1,51 @@
+{
+  "name": "grpc",
+  "version": "1.0.0",
+  "description": "A gRPC service in NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "start-dev:server": "npm run build && nodemon --exec babel-node src/server/server.js",
+    "start-dev:client": "npm run build && nodemon --exec babel-node src/client/client.js",
+    "start": "npm run build && node ./src/client/index.js",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prebuild": "rm -rf dist",
+    "build": "npm run prebuild && babel ./src --out-dir ./dist",
+    "start:dev": "npm run build && nodemon --exec babel-node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheygs13/node-gRPC.git"
+  },
+  "keywords": [
+    "gRPC",
+    "server",
+    "client"
+  ],
+  "author": "Olusegun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sheygs13/node-gRPC/issues"
+  },
+  "homepage": "https://github.com/sheygs13/node-gRPC#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.10",
+    "@grpc/proto-loader": "^0.6.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/runtime": "^7.17.8",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1"
+  }
+}
