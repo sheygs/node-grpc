@@ -27,8 +27,7 @@ app.post('/api/v1/news', (req, res) => {
 });
 
 app.put('/api/v1/news/:newsId', (req, res) => {
-  const { title, body, imageUrl } = req.body;
-  const { newsId: id } = req.params;
+  const { body: { title, body, imageUrl }, params: { newsId: id }  } = req;
   if (!id) return res.status(400).json({ message: 'Id required' });
   if (!title || !body || !imageUrl)
     return res.status(400).json({ message: 'Body fields required' });
